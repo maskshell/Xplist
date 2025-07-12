@@ -6,11 +6,12 @@
 
 ## 工作流文件
 
-### 1. Windows 构建 (`windows.yml`)
+### 1. Windows 构建
+- **windows.yml**: MSVC 构建 (Qt 5.15.2)
+- **windows-mingw.yml**: MinGW 构建 (Qt 5.15.2)
 - **运行环境**: Windows Server 2022
 - **触发方式**: 手动触发 (`workflow_dispatch`)
-- **Qt 版本**: 5.15.2
-- **编译器**: MSVC 2019/2022
+- **编译器**: MSVC 2019/2022 或 MinGW 8.1.0
 - **输出**: Windows 可执行文件 (.exe)
 
 ### 2. macOS 构建

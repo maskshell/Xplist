@@ -1,19 +1,10 @@
 name: Windows MinGW
 on: 
-  push:
-    paths:
-      - '*.pro'
-      - '**'
-      - '.github/workflows/windows-mingw.yml'
-  pull_request:
-    paths:
-      - '*.pro'
-      - '**'
-      - '.github/workflows/windows-mingw.yml' 
+  workflow_dispatch:
 jobs:
   build:
     name: Build
-    runs-on: windows-2019
+    runs-on: windows-2022
     strategy:
       matrix:
         include:
