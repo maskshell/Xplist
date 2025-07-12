@@ -1,0 +1,100 @@
+# Qt build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.app
+*.dmg
+*.deb
+*.rpm
+*.zip
+*.tar.gz
+
+# Qt generated files
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+*.moc
+*.qm
+
+# Qt project files
+*.pro.user
+*.pro.user.*
+.qmake.stash
+Makefile*
+*.qbs.user
+*.qbs.user.*
+*.moc
+
+# Build directories
+bin/
+build/
+debug/
+release/
+obj/
+*.app/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# Generated documentation
+doc/
+docs/
+
+# Package files
+*.deb
+*.rpm
+*.dmg
+*.exe
+*.msi
+*.appimage
+
+# Test files
+test_*
+*_test
+*.test
+
+# Coverage files
+*.gcov
+*.gcda
+*.gcno
+
+# Profiling files
+*.prof
+*.gprof
+
+# Backup files
+*~
+*.orig
+*.rej
+
+# Local configuration
+config.local
+settings.local
+*.local
+
+# Network analysis report (temporary)
+network_analysis_report.md 

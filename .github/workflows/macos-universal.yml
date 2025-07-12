@@ -1,15 +1,6 @@
 name: MacOS Universal
-on: 
-  push:
-    paths:
-      - '*.pro'
-      - '**'
-      - '.github/workflows/macos-universal.yml'
-  pull_request:
-    paths:
-      - '*.pro'
-      - '**'
-      - '.github/workflows/macos-universal.yml' 
+on:
+  workflow_dispatch:
 jobs:
   build:
     name: Build Universal macOS

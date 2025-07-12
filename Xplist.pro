@@ -82,21 +82,37 @@ DISTFILES += \
     Info.plist \
     myapp.rc
 
+# 构建配置优化
+CONFIG(debug, debug|release) {
+    DESTDIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/debug)
+    OBJECTS_DIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/debug/obj)
+    MOC_DIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/debug/moc)
+    RCC_DIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/debug/rcc)
+    UI_DIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/debug/ui)
+} else {
+    DESTDIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/release)
+    OBJECTS_DIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/release/obj)
+    MOC_DIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/release/moc)
+    RCC_DIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/release/rcc)
+    UI_DIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/release/ui)
+}
+
+# 确保构建目录存在
+mkpath($$OBJECTS_DIR)
+mkpath($$MOC_DIR)
+mkpath($$RCC_DIR)
+mkpath($$UI_DIR)
+
 mac {
     # Only include / compile these files on OS X
     OBJECTIVE_SOURCES +=
     HEADERS  +=
 
     # Additionally include Cocoa for OS X code
-
     LIBS += -framework Foundation -framework Cocoa
     INCLUDEPATH += /System/Library/Frameworks/Foundation.framework/Versions/C/Headers
 }
 
-
-CONFIG(debug,debug|release) {
-    DESTDIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/debug)
-} else {
-    DESTDIR = $$absolute_path($${_PRO_FILE_PWD_}/bin/release)
-}
+# 清理配置
+CONFIG += clean_obj
 

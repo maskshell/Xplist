@@ -1,16 +1,7 @@
 name: MacOS 10.12
 
 on: 
-  push:
-    paths:
-      - '*.pro'
-      - '**'
-      - '.github/workflows/macos1012.yml'
-  pull_request:
-    paths:
-      - '*.pro'
-      - '**'
-      - '.github/workflows/macos1012.yml' 
+  workflow_dispatch:
 jobs:
   build:
     name: Build
