@@ -33,10 +33,20 @@
 - **Ubuntu**: 从 20.04 升级到 22.04 (避免退役警告)
 - **Windows**: 从 Server 2019 升级到 Server 2022 (避免退役警告)
 - **触发方式**: 所有工作流改为手动触发，节省 CI/CD 资源
+- **Actions 版本**: 更新所有 Actions 到最新版本，避免弃用警告
+  - `actions/checkout@v2` → `actions/checkout@v4`
+  - `actions/upload-artifact@v2` → `actions/upload-artifact@v4`
+  - `jurplel/install-qt-action@v2.13.0` → `jurplel/install-qt-action@v3.3.0`
 
 ### 退役环境说明
 - **Ubuntu 20.04**: 将于 2025-04-15 退役
 - **Windows Server 2019**: 已于 2025-06-30 退役
+
+### Actions 版本更新说明
+- **actions/checkout**: 从 v2 升级到 v4，提供更好的性能和安全性
+- **actions/upload-artifact**: 从 v2 升级到 v4，修复了弃用警告
+- **jurplel/install-qt-action**: 从 v2.13.0 升级到 v3.3.0，修复了 `set-output` 弃用警告和 `zstandard` 模块错误
+- **svenstaro/upload-release-action**: 保持 v2 版本（最新稳定版）
 
 ## 手动触发构建
 

@@ -21,13 +21,13 @@ jobs:
       targetName: PlistEDPlus.exe
     steps:
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2.13.0
+        uses: jurplel/install-qt-action@v3.3.0
         with:
           version: ${{ matrix.qt_ver }}
           arch: ${{ matrix.qt_arch }}
           tools: ${{ matrix.qt_tools }}
-          cached: 'false'
-      - uses: actions/checkout@v2
+          cache: false
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - name: Qt 5 environment configuration
@@ -65,7 +65,7 @@ jobs:
            $name = ${env:archiveName}
            echo "::set-output name=packageName::$name"       
            
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.package.outputs.packageName }}
           path: ${{ steps.package.outputs.packageName }}.zip

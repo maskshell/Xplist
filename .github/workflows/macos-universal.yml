@@ -14,13 +14,13 @@ jobs:
               
     steps:
       - name: Install Qt for x86_64
-        uses: jurplel/install-qt-action@v2.13.0
+        uses: jurplel/install-qt-action@v3.3.0
         with:
           version: ${{ matrix.qt_ver }}
           arch: clang_64
-          cached: 'false'
+          cache: false
           
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
           
@@ -31,11 +31,11 @@ jobs:
           mv bin/release/${targetName}.app bin/release/${targetName}_x86_64.app
           
       - name: Install Qt for ARM64
-        uses: jurplel/install-qt-action@v2.13.0
+        uses: jurplel/install-qt-action@v3.3.0
         with:
           version: ${{ matrix.qt_ver }}
           arch: clang_arm64
-          cached: 'false'
+          cache: false
           
       - name: Build ARM64 version
         run: |
@@ -69,7 +69,7 @@ jobs:
           macdeployqt bin/release/${targetName}.app -qmldir=. -verbose=1 -dmg
           
       # 上传artifacts          
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ env.targetName }}_${{ env.VERSION }}
           path: bin/release/${{ env.targetName }}.dmg
